@@ -72,7 +72,7 @@ class _DetailViewState extends State<DetailView> {
         selectedItemColor: const Color.fromARGB(255, 1, 92, 218),
         onTap: _onItemTapped,
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Stack(
