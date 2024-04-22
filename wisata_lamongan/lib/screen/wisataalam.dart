@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_lamongan/api/listwisata.dart';
+import 'package:wisata_lamongan/api/repositorywisata.dart';
+import 'package:wisata_lamongan/screen/detailview.dart';
 
 class WisataAlam extends StatefulWidget {
   const WisataAlam({Key? key}) : super(key: key);
@@ -8,6 +11,9 @@ class WisataAlam extends StatefulWidget {
 }
 
 class _WisataAlamState extends State<WisataAlam> {
+  List<Destinasi> listAlam = [];
+  RepositoryAlam repositoryalam = RepositoryAlam();
+
   int _selectedIndex = 1;
 
   static const TextStyle optionStyle =
@@ -26,6 +32,17 @@ class _WisataAlamState extends State<WisataAlam> {
       style: optionStyle,
     ),
   ];
+
+  getData() async {
+    listAlam = await repositoryalam.getData();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -118,8 +135,10 @@ class _WisataAlamState extends State<WisataAlam> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 2,
+              itemCount: listAlam.length,
               itemBuilder: (context, index) {
+                final destinasi = listAlam[index];
+                final imageUrl = repositoryalam.getImageUrl(destinasi.images);
                 return Column(
                   children: [
                     SizedBox(
@@ -134,8 +153,8 @@ class _WisataAlamState extends State<WisataAlam> {
                           Container(
                             height: 150,
                             width: MediaQuery.of(context).size.width,
-                            child: Image.asset(
-                              "assets/image/homegambar.jpg",
+                            child: Image.network(
+                              imageUrl,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -150,7 +169,7 @@ class _WisataAlamState extends State<WisataAlam> {
                                         left: 20,
                                         top: 15), // Mengatur margin kanan
                                     child: Text(
-                                      "Nama Tempat",
+                                      destinasi.nama_destinasi,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600,
@@ -161,7 +180,7 @@ class _WisataAlamState extends State<WisataAlam> {
                                     margin: EdgeInsets.only(
                                         left: 20,
                                         top: 2), // Mengatur margin kanan
-                                    child: Text("Deket Lamongan"),
+                                    child: Text(destinasi.lokasi),
                                   ),
                                   Row(
                                     children: [
@@ -195,8 +214,11 @@ class _WisataAlamState extends State<WisataAlam> {
                                 height: 40,
                                 color: const Color.fromARGB(255, 14, 100, 171),
                                 child: InkWell(
-                                  onTap: () => Navigator.pushReplacementNamed(
-                                      context, '/explore'),
+                                  onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DetailView(
+                                              destinasi: destinasi))),
                                   child: const Center(
                                       child: Text(
                                     "View Detail",
