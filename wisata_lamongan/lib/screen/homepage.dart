@@ -172,19 +172,12 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildKategoributton(
-                  "Religi & Sejarah",
-                  Icons.temple_hindu_sharp,
-                ),
+                    "Religi & Sejarah", Icons.temple_hindu_sharp, "/explore"),
                 const SizedBox(width: 30),
                 buildKategoributton(
-                  "Wisata Alam",
-                  Icons.fastfood_outlined,
-                ),
+                    "Wisata Alam", Icons.fastfood_outlined, "/alam"),
                 const SizedBox(width: 30),
-                buildKategoributton(
-                  "UMKM",
-                  Icons.fastfood_outlined,
-                ),
+                buildKategoributton("UMKM", Icons.fastfood_outlined, "/umkm"),
               ],
             ),
             const SizedBox(
@@ -344,12 +337,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildKategoributton(String text, IconData icon) {
+  Widget buildKategoributton(String text, IconData icon, String routeName) {
     return Column(
       children: [
         RawMaterialButton(
           onPressed: () {
-            ///
+            Navigator.pushNamed(
+              context,
+              routeName,
+            );
           },
           elevation: 2.0,
           fillColor: Colors.blue,

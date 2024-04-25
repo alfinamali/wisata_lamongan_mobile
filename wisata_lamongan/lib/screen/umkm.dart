@@ -3,16 +3,16 @@ import 'package:wisata_lamongan/api/listwisata.dart';
 import 'package:wisata_lamongan/api/repositorywisata.dart';
 import 'package:wisata_lamongan/screen/detailview.dart';
 
-class WisataAlam extends StatefulWidget {
-  const WisataAlam({Key? key}) : super(key: key);
+class Umkm extends StatefulWidget {
+  const Umkm({Key? key}) : super(key: key);
 
   @override
-  State<WisataAlam> createState() => _WisataAlamState();
+  State<Umkm> createState() => _UmkmState();
 }
 
-class _WisataAlamState extends State<WisataAlam> {
-  List<Destinasi> listAlam = [];
-  RepositoryAlam repositoryalam = RepositoryAlam();
+class _UmkmState extends State<Umkm> {
+  List<Destinasi> listUmkm = [];
+  RepositoryUmkm repositoryUmkm = RepositoryUmkm();
 
   int _selectedIndex = 1;
 
@@ -34,7 +34,7 @@ class _WisataAlamState extends State<WisataAlam> {
   ];
 
   getData() async {
-    listAlam = await repositoryalam.getData();
+    listUmkm = await repositoryUmkm.getData();
     setState(() {});
   }
 
@@ -109,12 +109,6 @@ class _WisataAlamState extends State<WisataAlam> {
                 Container(
                   width: 100,
                   height: 40,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                          color: Color.fromARGB(255, 1, 92, 218), width: 2.0),
-                    ),
-                  ),
                   child: InkWell(
                     onTap: () =>
                         Navigator.pushReplacementNamed(context, '/alam'),
@@ -124,6 +118,12 @@ class _WisataAlamState extends State<WisataAlam> {
                 Container(
                   width: 100,
                   height: 40,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                          color: Color.fromARGB(255, 1, 92, 218), width: 2.0),
+                    ),
+                  ),
                   child: InkWell(
                     onTap: () =>
                         Navigator.pushReplacementNamed(context, '/umkm'),
@@ -135,10 +135,10 @@ class _WisataAlamState extends State<WisataAlam> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: listAlam.length,
+              itemCount: listUmkm.length,
               itemBuilder: (context, index) {
-                final destinasi = listAlam[index];
-                final imageUrl = repositoryalam.getImageUrl(destinasi.images);
+                final destinasi = listUmkm[index];
+                final imageUrl = repositoryUmkm.getImageUrl(destinasi.images);
                 return Column(
                   children: [
                     SizedBox(

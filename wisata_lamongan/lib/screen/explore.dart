@@ -126,7 +126,7 @@ class _ExploreState extends State<Explore> {
                   height: 40,
                   child: InkWell(
                     onTap: () =>
-                        Navigator.pushReplacementNamed(context, '/explore'),
+                        Navigator.pushReplacementNamed(context, '/umkm'),
                     child: const Center(child: Text("UMKM")),
                   ),
                 ),

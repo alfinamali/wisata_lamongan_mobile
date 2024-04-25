@@ -3,6 +3,7 @@ import 'package:wisata_lamongan/screen/detailview.dart';
 import 'package:wisata_lamongan/screen/explore.dart';
 import 'package:wisata_lamongan/screen/homepage.dart';
 import 'package:wisata_lamongan/screen/splashscreen.dart';
+import 'package:wisata_lamongan/screen/umkm.dart';
 import 'package:wisata_lamongan/screen/wisataalam.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/explore': (context) => Explore(),
         '/alam': (context) => WisataAlam(),
-        // '/detail': (context) => DetailView(),
+        '/umkm': (context) => Umkm(),
         // '/register': (context) => RegisterPage(),
         // '/profile': (context) => ProfilePage(),
         // '/favorite': (context) => FavoritePage(),
