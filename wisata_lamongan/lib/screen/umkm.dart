@@ -57,7 +57,7 @@ class _UmkmState extends State<Umkm> {
         Navigator.pushReplacementNamed(context, '/explore');
         break;
       case 2:
-        Navigator.pushReplacementNamed(context, '/favorite');
+        Navigator.pushReplacementNamed(context, '/home');
         break;
     }
   }

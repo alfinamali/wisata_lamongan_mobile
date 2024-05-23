@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
         Navigator.pushReplacementNamed(context, '/explore');
         break;
       case 2:
-        Navigator.pushReplacementNamed(context, '/favorite');
+        Navigator.pushReplacementNamed(context, '/home');
         break;
     }
   }
@@ -319,8 +319,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Center(
-                              child: Text(alam.nama_destinasi),
+                            Container(
+                              width:
+                                  105, // Set the width to match the container width above
+                              child: Text(
+                                alam.nama_destinasi,
+                                textAlign: TextAlign
+                                    .center, // Optional: center the text
+                                softWrap: true,
+                                maxLines:
+                                    2, // Allow the text to wrap into a second line
+                                overflow: TextOverflow
+                                    .ellipsis, // Handle overflow with an ellipsis
+                              ),
                             ),
                             const SizedBox(
                               width: 20,
