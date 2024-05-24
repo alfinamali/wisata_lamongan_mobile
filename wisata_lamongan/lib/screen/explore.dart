@@ -57,7 +57,7 @@ class _ExploreState extends State<Explore> {
         Navigator.pushReplacementNamed(context, '/explore');
         break;
       case 2:
-        Navigator.pushReplacementNamed(context, '/favorite');
+        Navigator.pushReplacementNamed(context, '/home');
         break;
     }
   }
