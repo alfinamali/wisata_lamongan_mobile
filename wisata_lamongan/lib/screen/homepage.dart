@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildKategoributton(
-                    "Religi & Sejarah", Icons.temple_hindu_sharp, "/explore"),
+                    "Religi ", Icons.temple_hindu_sharp, "/explore"),
                 const SizedBox(width: 30),
                 buildKategoributton(
                     "Wisata Alam", Icons.fastfood_outlined, "/alam"),
