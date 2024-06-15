@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_lamongan/api/listwisata.dart';
 import 'package:wisata_lamongan/api/repositorywisata.dart';
+import 'package:wisata_lamongan/screen/detailumkm.dart';
 import 'package:wisata_lamongan/screen/detailview.dart';
 
 class Umkm extends StatefulWidget {
@@ -217,7 +218,7 @@ class _UmkmState extends State<Umkm> {
                                   onTap: () => Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => DetailView(
+                                          builder: (context) => DetailUmkm(
                                               destinasi: destinasi))),
                                   child: const Center(
                                       child: Text(

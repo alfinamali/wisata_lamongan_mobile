@@ -6,6 +6,8 @@ class Destinasi {
   final String deskripsi;
   final String lokasi;
   final String harga;
+  final String kontak;
+  final String maps;
   bool isFavorite;
 
   Destinasi({
@@ -16,6 +18,8 @@ class Destinasi {
     required this.deskripsi,
     required this.lokasi,
     required this.harga,
+    required this.kontak,
+    required this.maps,
     this.isFavorite = false,
   });
 
@@ -28,6 +32,8 @@ class Destinasi {
       deskripsi: json['deskripsi'].toString(),
       lokasi: json['lokasi'].toString(),
       harga: json['harga'].toString(),
+      kontak: json['kontak'].toString(),
+      maps: json['maps'].toString(),
     );
   }
 }
