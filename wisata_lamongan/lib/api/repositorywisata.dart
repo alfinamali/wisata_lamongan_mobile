@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:wisata_lamongan/api/listwisata.dart';
 
 class RepositoryWisata {
-  final baseUrl = 'http://192.168.1.9:8000/api/wisata';
+  final baseUrl = 'http://192.168.1.8:8000/api/wisata';
 
   Future<List<Destinasi>> getData() async {
     try {
@@ -26,13 +26,13 @@ class RepositoryWisata {
   }
 
   String getImageUrl(String filename) {
-    return Uri.parse('http://192.168.1.9:8000/api/file/$filename')
+    return Uri.parse('http://192.168.1.8:8000/api/file/$filename')
         .toString(); // Include the base URL when constructing the image URL
   }
 }
 
 class RepositoryReligi {
-  final baseUrl = 'http://192.168.1.9:8000/api/religi';
+  final baseUrl = 'http://192.168.1.8:8000/api/religi';
 
   Future<List<Destinasi>> getData() async {
     try {
@@ -54,13 +54,13 @@ class RepositoryReligi {
   }
 
   String getImageUrl(String filename) {
-    return Uri.parse('http://192.168.1.9:8000/api/file/$filename')
+    return Uri.parse('http://192.168.1.8:8000/api/file/$filename')
         .toString(); // Include the base URL when constructing the image URL
   }
 }
 
 class RepositoryAlam {
-  final baseUrl = 'http://192.168.1.9:8000/api/alam';
+  final baseUrl = 'http://192.168.1.8:8000/api/alam';
 
   Future<List<Destinasi>> getData() async {
     try {
@@ -82,13 +82,13 @@ class RepositoryAlam {
   }
 
   String getImageUrl(String filename) {
-    return Uri.parse('http://192.168.1.9:8000/api/file/$filename')
+    return Uri.parse('http://192.168.1.8:8000/api/file/$filename')
         .toString(); // Include the base URL when constructing the image URL
   }
 }
 
 class RepositoryUmkm {
-  final baseUrl = 'http://192.168.1.9:8000:8000/api/umkm';
+  final baseUrl = 'http://192.168.1.8:8000:8000/api/umkm';
 
   Future<List<Destinasi>> getData() async {
     try {
@@ -110,7 +110,7 @@ class RepositoryUmkm {
   }
 
   String getImageUrl(String filename) {
-    return Uri.parse('http://192.168.1.9:8000/api/file/$filename')
+    return Uri.parse('http://192.168.1.8:8000/api/file/$filename')
         .toString(); // Include the base URL when constructing the image URL
   }
 }
