@@ -147,7 +147,6 @@ class _UmkmState extends State<Umkm> {
                     ),
                     Container(
                       color: Colors.white,
-                      height: 260,
                       width: MediaQuery.of(context).size.width,
                       child: Column(
                         children: [
@@ -162,52 +161,60 @@ class _UmkmState extends State<Umkm> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(
-                                        left: 20,
-                                        top: 15), // Mengatur margin kanan
-                                    child: Text(
-                                      destinasi.nama_destinasi,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin:
+                                          EdgeInsets.only(left: 20, top: 15),
+                                      child: Text(
+                                        destinasi.nama_destinasi,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        overflow: TextOverflow.visible,
+                                        softWrap: true,
                                       ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(
-                                        left: 20,
-                                        top: 2), // Mengatur margin kanan
-                                    child: Text(destinasi.lokasi),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
+                                    Container(
+                                      margin: EdgeInsets.only(left: 20, top: 2),
+                                      child: Text(
+                                        destinasi.lokasi,
+                                        overflow: TextOverflow.visible,
+                                        softWrap: true,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
                                           margin: EdgeInsets.only(
                                               left: 20, right: 10, top: 5),
                                           width: 25,
                                           height: 25,
                                           color: Colors.yellow,
                                           child: Center(
-                                              child: Text(
-                                            "4.9",
-                                            style: TextStyle(
+                                            child: Text(
+                                              "4.9",
+                                              style: TextStyle(
                                                 fontSize: 12,
-                                                fontWeight: FontWeight.bold),
-                                          ))),
-                                      Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        child: Text(
-                                          "Very Good",
-                                          style: TextStyle(fontSize: 15),
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                ],
+                                        Container(
+                                          margin: EdgeInsets.only(top: 5),
+                                          child: Text(
+                                            "Very Good",
+                                            style: TextStyle(fontSize: 15),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(right: 20, top: 30),
@@ -216,21 +223,27 @@ class _UmkmState extends State<Umkm> {
                                 color: const Color.fromARGB(255, 14, 100, 171),
                                 child: InkWell(
                                   onTap: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DetailUmkm(
-                                              destinasi: destinasi))),
-                                  child: const Center(
-                                      child: Text(
-                                    "View Detail",
-                                    style: TextStyle(
-                                      color: Colors.white,
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailUmkm(destinasi: destinasi),
                                     ),
-                                  )),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "View Detail",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
                         ],
                       ),
                     ),

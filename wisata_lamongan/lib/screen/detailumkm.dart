@@ -14,7 +14,7 @@ class DetailUmkm extends StatefulWidget {
 }
 
 class _DetailUmkmState extends State<DetailUmkm> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -117,6 +117,7 @@ class _DetailUmkmState extends State<DetailUmkm> {
                                         Align(
                                           alignment: Alignment.centerRight,
                                           child: Text(
+                                            textAlign: TextAlign.right,
                                             widget.destinasi.lokasi,
                                             style: const TextStyle(
                                               color: Colors.white,
@@ -148,9 +149,23 @@ class _DetailUmkmState extends State<DetailUmkm> {
                 ),
               ],
             ),
-            Container(
-              color: Colors.yellow,
-              height: 70,
+            const SizedBox(
+              height: 15,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 50),
+                child: Text(
+                  widget.destinasi.nama_destinasi,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.visible,
+                  softWrap: true,
+                ),
+              ),
             ),
             const SizedBox(
               height: 15,
@@ -192,7 +207,7 @@ class _DetailUmkmState extends State<DetailUmkm> {
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 50),
               child: const Text(
-                "Kontak",
+                "Alamat Lokasi",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ),
@@ -200,11 +215,32 @@ class _DetailUmkmState extends State<DetailUmkm> {
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 50),
               child: Text(
-                widget.destinasi.kontak,
+                widget.destinasi.lokasi,
                 style: const TextStyle(
                   fontWeight: FontWeight.normal,
                   fontSize: 16,
                 ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: const Text(
+                "Kontak",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: Text(
+                widget.destinasi.kontak,
               ),
             ),
             const SizedBox(
