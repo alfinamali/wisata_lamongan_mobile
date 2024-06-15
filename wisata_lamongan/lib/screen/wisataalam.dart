@@ -57,7 +57,7 @@ class _WisataAlamState extends State<WisataAlam> {
         Navigator.pushReplacementNamed(context, '/explore');
         break;
       case 2:
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/umkm');
         break;
     }
   }
@@ -81,7 +81,7 @@ class _WisataAlamState extends State<WisataAlam> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border_outlined),
-            label: 'Favorite',
+            label: 'UMKM',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -119,15 +119,6 @@ class _WisataAlamState extends State<WisataAlam> {
                     onTap: () =>
                         Navigator.pushReplacementNamed(context, '/alam'),
                     child: const Center(child: Text("Wisata Alam")),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 40,
-                  child: InkWell(
-                    onTap: () =>
-                        Navigator.pushReplacementNamed(context, '/umkm'),
-                    child: const Center(child: Text("UMKM")),
                   ),
                 ),
               ],
