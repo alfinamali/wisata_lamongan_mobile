@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wisata_lamongan/api/listwisata.dart';
 import 'package:wisata_lamongan/api/repositorywisata.dart';
 
@@ -45,8 +46,17 @@ class _DetailViewState extends State<DetailView> {
         Navigator.pushReplacementNamed(context, '/explore');
         break;
       case 2:
-        Navigator.pushReplacementNamed(context, '/favorite');
+        Navigator.pushReplacementNamed(context, '/umkm');
         break;
+    }
+  }
+
+  Future<void> _launchUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 
@@ -65,7 +75,7 @@ class _DetailViewState extends State<DetailView> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border_outlined),
-            label: 'Favorite',
+            label: 'UMKM',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -96,35 +106,38 @@ class _DetailViewState extends State<DetailView> {
                                 right: 0,
                                 bottom: 0,
                                 child: Container(
-                                    height: 100,
-                                    color: const Color.fromARGB(105, 0, 0, 0),
-                                    child: Container(
-                                      margin: const EdgeInsets.only(right: 20),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              widget.destinasi.lokasi,
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 18),
+                                  height: 100,
+                                  color: const Color.fromARGB(105, 0, 0, 0),
+                                  child: Container(
+                                    margin: const EdgeInsets.only(right: 20),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Text(
+                                            widget.destinasi.lokasi,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
                                             ),
                                           ),
-                                          const Align(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              "Kab. Lamongan",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 12),
+                                        ),
+                                        const Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Text(
+                                            "Kab. Lamongan",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -154,38 +167,33 @@ class _DetailViewState extends State<DetailView> {
               height: 15,
             ),
             Container(
-                height: 170,
-                width: MediaQuery.of(context).size.width,
-                child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 50),
-                    child: Column(
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 50),
+                child: Column(
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.adjust,
-                              size: 20,
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Expanded(
-                                child: Text(
-                              widget.destinasi.deskripsi,
-                            ))
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        Expanded(
+                          child: Text(
+                            widget.destinasi.deskripsi,
+                          ),
+                        )
                       ],
-                    ))),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 50),
               child: const Text(
                 "Harga Tiket",
-                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ),
             Container(
@@ -193,8 +201,62 @@ class _DetailViewState extends State<DetailView> {
               margin: EdgeInsets.symmetric(horizontal: 50),
               child: Text(
                 widget.destinasi.harga,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: const TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: const Text(
+                "Fasilitas",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: Text(
+                widget.destinasi.fasilitas,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: const Text(
+                "Detail Maps Lokasi",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: GestureDetector(
+                onTap: () async {
+                  print("jai");
+                  await _launchUrl(widget.destinasi.maps);
+                },
+                child: Text(
+                  widget.destinasi.maps,
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
               ),
             ),
             const SizedBox(

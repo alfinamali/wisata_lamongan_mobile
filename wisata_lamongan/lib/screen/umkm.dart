@@ -15,7 +15,7 @@ class _UmkmState extends State<Umkm> {
   List<Destinasi> listUmkm = [];
   RepositoryUmkm repositoryUmkm = RepositoryUmkm();
 
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -67,7 +67,7 @@ class _UmkmState extends State<Umkm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Explore'),
+        title: const Text('UMKM'),
         centerTitle: true,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -82,7 +82,7 @@ class _UmkmState extends State<Umkm> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border_outlined),
-            label: 'Favorite',
+            label: 'UMKM',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -92,48 +92,48 @@ class _UmkmState extends State<Umkm> {
       backgroundColor: Color.fromARGB(255, 241, 245, 245),
       body: Column(
         children: [
-          Container(
-            height: 50,
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  width: 100,
-                  height: 40,
-                  child: InkWell(
-                    onTap: () =>
-                        Navigator.pushReplacementNamed(context, '/explore'),
-                    child: const Center(child: Text("Wisata Religi")),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 40,
-                  child: InkWell(
-                    onTap: () =>
-                        Navigator.pushReplacementNamed(context, '/alam'),
-                    child: const Center(child: Text("Wisata Alam")),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 40,
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                          color: Color.fromARGB(255, 1, 92, 218), width: 2.0),
-                    ),
-                  ),
-                  child: InkWell(
-                    onTap: () =>
-                        Navigator.pushReplacementNamed(context, '/umkm'),
-                    child: const Center(child: Text("UMKM")),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   height: 50,
+          //   color: Colors.white,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //     children: [
+          //       Container(
+          //         width: 100,
+          //         height: 40,
+          //         child: InkWell(
+          //           onTap: () =>
+          //               Navigator.pushReplacementNamed(context, '/explore'),
+          //           child: const Center(child: Text("Wisata Religi")),
+          //         ),
+          //       ),
+          //       Container(
+          //         width: 100,
+          //         height: 40,
+          //         child: InkWell(
+          //           onTap: () =>
+          //               Navigator.pushReplacementNamed(context, '/alam'),
+          //           child: const Center(child: Text("Wisata Alam")),
+          //         ),
+          //       ),
+          //       Container(
+          //         width: 100,
+          //         height: 40,
+          //         decoration: const BoxDecoration(
+          //           border: Border(
+          //             bottom: BorderSide(
+          //                 color: Color.fromARGB(255, 1, 92, 218), width: 2.0),
+          //           ),
+          //         ),
+          //         child: InkWell(
+          //           onTap: () =>
+          //               Navigator.pushReplacementNamed(context, '/umkm'),
+          //           child: const Center(child: Text("UMKM")),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           Expanded(
             child: ListView.builder(
               itemCount: listUmkm.length,
