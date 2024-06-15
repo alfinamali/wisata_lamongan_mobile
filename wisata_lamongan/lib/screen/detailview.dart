@@ -148,9 +148,23 @@ class _DetailViewState extends State<DetailView> {
                 ),
               ],
             ),
-            Container(
-              color: Colors.yellow,
-              height: 70,
+            const SizedBox(
+              height: 15,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 50),
+                child: Text(
+                  widget.destinasi.nama_destinasi,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.visible,
+                  softWrap: true,
+                ),
+              ),
             ),
             const SizedBox(
               height: 15,
