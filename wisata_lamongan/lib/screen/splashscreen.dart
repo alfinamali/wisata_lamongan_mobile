@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 horizontal: 16,
               ),
               child: Image.asset(
-                "assets/image/su.png",
+                "assets/image/tugu_lmg.png",
               ),
             ),
             const Padding(

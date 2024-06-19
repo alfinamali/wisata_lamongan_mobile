@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
             label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined),
+            icon: Icon(Icons.fastfood_outlined),
             label: 'UMKM',
           ),
         ],
@@ -174,8 +174,7 @@ class _HomePageState extends State<HomePage> {
                 buildKategoributton(
                     "Religi ", Icons.temple_hindu_sharp, "/explore"),
                 const SizedBox(width: 30),
-                buildKategoributton(
-                    "Wisata Alam", Icons.fastfood_outlined, "/alam"),
+                buildKategoributton("Wisata Alam", Icons.landscape, "/alam"),
                 const SizedBox(width: 30),
                 buildKategoributton("UMKM", Icons.fastfood_outlined, "/umkm"),
               ],

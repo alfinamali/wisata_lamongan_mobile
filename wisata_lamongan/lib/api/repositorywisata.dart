@@ -88,7 +88,7 @@ class RepositoryAlam {
 }
 
 class RepositoryUmkm {
-  final baseUrl = 'http://192.168.1.8:8000:8000/api/umkm';
+  final baseUrl = 'http://192.168.1.8:8000/api/umkm';
 
   Future<List<Destinasi>> getData() async {
     try {
