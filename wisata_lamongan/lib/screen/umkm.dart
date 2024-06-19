@@ -195,14 +195,8 @@ class _UmkmState extends State<Umkm> {
                                           height: 25,
                                           color: Colors.yellow,
                                           child: Center(
-                                            child: Text(
-                                              "4.9",
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
+                                              child:
+                                                  Icon(Icons.star, size: 15)),
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(top: 5),

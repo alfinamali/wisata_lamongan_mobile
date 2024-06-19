@@ -239,8 +239,17 @@ class _DetailUmkmState extends State<DetailUmkm> {
             Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 50),
-              child: Text(
-                widget.destinasi.kontak,
+              child: GestureDetector(
+                onTap: () async {
+                  await _launchUrl('https://wa.me/${widget.destinasi.kontak}');
+                },
+                child: Text(
+                  widget.destinasi.kontak,
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
               ),
             ),
             const SizedBox(
